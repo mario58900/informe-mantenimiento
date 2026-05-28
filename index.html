@@ -220,9 +220,14 @@
 
         <tr>
           <td><b>Fecha:</b></td>
-          <td>
-            <input type="date" id="fecha">
-          </td>
+         <td>
+  <input 
+    type="text" 
+    id="fecha"
+    value="01-06-2026"
+    readonly
+  >
+</td>
         </tr>
 
         <tr>
@@ -357,8 +362,10 @@
   </div>
 
   <textarea
+
     id="hallazgo"
     placeholder="Escriba la descripción del hallazgo..."
+     style="min-height:440px;"
   ></textarea>
 
   
@@ -546,69 +553,121 @@ A EQUIPO Y/O INSTALACIONES
 <tr>
 
 <!-- FOTO 1 -->
+<table>
 
-<td class="foto-registro" width="50%">
+<tr>
 
-  <input
-    type="file"
-    id="fotoRegistro1"
-    accept="image/*"
-    onchange="convertirFotoRegistro1()"
-  >
+<!-- FOTO 1 -->
+<td width="50%" style="vertical-align:top; padding:10px;">
 
-  <br><br>
+<input
+type="file"
+id="fotoRegistro1"
+accept="image/*"
+onchange="convertirFotoRegistro1()"
+>
 
-  <img
-    id="preview1"
-    style="
-      max-width:100%;
-      max-height:250px;
-      border:1px solid #999;
-      padding:5px;
-    "
-  >
+<br><br>
 
-  <input
-    type="hidden"
-    id="f_foto1_base64"
-  >
+<img
+id="preview1"
+style="
+max-width:100%;
+max-height:250px;
+border:1px solid #999;
+padding:5px;
+"
+>
+
+<input type="hidden" id="f_foto1_base64">
 
 </td>
 
 <!-- FOTO 2 -->
+<td width="50%" style="vertical-align:top; padding:10px;">
 
-<td class="foto-registro" width="50%">
+<input
+type="file"
+id="fotoRegistro2"
+accept="image/*"
+onchange="convertirFotoRegistro2()"
+>
 
-  <input
-    type="file"
-    id="fotoRegistro2"
-    accept="image/*"
-    onchange="convertirFotoRegistro2()"
-  >
+<br><br>
 
-  <br><br>
+<img
+id="preview2"
+style="
+max-width:100%;
+max-height:250px;
+border:1px solid #999;
+padding:5px;
+"
+>
 
-  <img
-    id="preview2"
-    style="
-      max-width:100%;
-      max-height:250px;
-      border:1px solid #999;
-      padding:5px;
-    "
-  >
+<input type="hidden" id="f_foto2_base64">
 
-  <input
-    type="hidden"
-    id="f_foto2_base64"
-  >
+</td>
+
+</tr>
+
+<tr>
+
+<!-- FOTO 3 -->
+<td width="50%" style="vertical-align:top; padding:10px;">
+
+<input
+type="file"
+id="fotoRegistro3"
+accept="image/*"
+onchange="convertirFotoRegistro3()"
+>
+
+<br><br>
+
+<img
+id="preview3"
+style="
+max-width:100%;
+max-height:250px;
+border:1px solid #999;
+padding:5px;
+"
+>
+
+<input type="hidden" id="f_foto3_base64">
+
+</td>
+
+<!-- FOTO 4 -->
+<td width="50%" style="vertical-align:top; padding:10px;">
+
+<input
+type="file"
+id="fotoRegistro4"
+accept="image/*"
+onchange="convertirFotoRegistro4()"
+>
+
+<br><br>
+
+<img
+id="preview4"
+style="
+max-width:100%;
+max-height:250px;
+border:1px solid #999;
+padding:5px;
+"
+>
+
+<input type="hidden" id="f_foto4_base64">
 
 </td>
 
 </tr>
 
 </table>
-
 
 
 
@@ -624,6 +683,7 @@ A EQUIPO Y/O INSTALACIONES
   <textarea
     id="recomendaciones"
     placeholder="Ingrese recomendaciones..."
+    style="min-height:100px;"
   ></textarea>
 
   <!-- OBSERVACIONES -->
@@ -638,6 +698,8 @@ A EQUIPO Y/O INSTALACIONES
   <textarea
     id="observaciones"
     placeholder="Ingrese observaciones..."
+     style="min-height:100px;"
+   
   ></textarea>
 
   <!-- REALIZÓ -->
@@ -707,7 +769,7 @@ A EQUIPO Y/O INSTALACIONES
   <!-- FORMULARIO OCULTO -->
 
   <form
-    action= "https://script.google.com/macros/s/AKfycbzTmPIhA9TrwM7D9xpNwRdLnnh9U2d0YjcpFOykunIUcIIzW-Tw0JNoTssdqJo3XceABA/exec"
+    action= "https://script.google.com/macros/s/AKfycbzJlva-gC0AUBgWpACo4FR0Sagj8jWP1hhqWRu32x4HftkM0T7eRrRUgaT-JObPSh7fBw/exec"
     method="POST"
     target="_blank"
   >
@@ -750,6 +812,8 @@ A EQUIPO Y/O INSTALACIONES
 	   <input type="hidden" name="dato20" id="f_dato20">
 	    <input type="hidden" name="foto1" id="f_foto1">
 	  <input type="hidden" name="foto2" id="f_foto2">
+	  	  <input type="hidden" name="foto3" id="f_foto3">
+	  	  <input type="hidden" name="foto4" id="f_foto4">
 	  
 
     
@@ -904,6 +968,12 @@ document.getElementById("f_foto1_base64").value;
 document.getElementById("f_foto2").value =
 document.getElementById("f_foto2_base64").value;
 	
+	document.getElementById("f_foto3").value =
+document.getElementById("f_foto3_base64").value;
+	
+	document.getElementById("f_foto4").value =
+document.getElementById("f_foto4_base64").value;
+	
 
 
  
@@ -988,6 +1058,51 @@ function convertirFotoRegistro2(){
 
 }	
 
+	function convertirFotoRegistro3(){
+
+  const archivo =
+    document.getElementById("fotoRegistro3").files[0];
+
+  if(!archivo) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function(){
+
+    document.getElementById("preview3").src =
+      reader.result;
+
+    document.getElementById("f_foto3_base64").value =
+      reader.result;
+
+  };
+
+  reader.readAsDataURL(archivo);
+
+}	
+	
+	function convertirFotoRegistro4(){
+
+  const archivo =
+    document.getElementById("fotoRegistro4").files[0];
+
+  if(!archivo) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function(){
+
+    document.getElementById("preview4").src =
+      reader.result;
+
+    document.getElementById("f_foto4_base64").value =
+      reader.result;
+
+  };
+
+  reader.readAsDataURL(archivo);
+
+}	
 
 
 </script> 
