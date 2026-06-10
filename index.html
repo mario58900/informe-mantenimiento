@@ -1,271 +1,178 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informe de Mantenimiento</title>
 
-<title>Informe de Mantenimiento</title>
+  <style>
 
-<style>
+    *{
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
 
-:root{
-  --primary:#0b3d5c;
-  --secondary:#145b87;
-  --light:#f4f7fb;
-  --border:#d6dde6;
-  --text:#1f2937;
-}
+    body{
+      margin:0;
+      padding:20px;
+      background:#f4f4f4;
+    }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+    .container{
+      max-width:1200px;
+      margin:auto;
+      background:#fff;
+      border:1px solid #999;
+    }
 
-body{
-  background:#e8edf3;
-  font-family:'Segoe UI',Tahoma,sans-serif;
-  padding:25px;
-  color:var(--text);
-}
-
-.container{
-  max-width:1300px;
-  margin:auto;
-  background:#fff;
-  border-radius:12px;
-  overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,.12);
-}
-
-/* HEADER */
-
-.header{
+ .header{
   display:grid;
-  grid-template-columns:220px 1fr 260px;
-  border-bottom:4px solid var(--primary);
+  grid-template-columns:200px 1fr 250px;
+  align-items:center;
+
+  border-top:2px solid #999;
+  border-left:2px solid #999;
+  border-right:2px solid #999;
+  border-bottom:2px solid #999;
 }
 
-.logo{
-  display:flex;
+    .logo{
+      padding:20px;
+      text-align:center;
+      border-right:1px solid #999;
+      font-size:30px;
+      font-weight:bold;
+      color:#0094d9;
+       display:flex;
   justify-content:center;
   align-items:center;
-  padding:20px;
-  background:#fff;
-  border-right:1px solid var(--border);
-}
 
-.logo h1{
-  color:var(--primary);
-  font-size:34px;
-  letter-spacing:2px;
-}
-
-.title{
-  background:linear-gradient(
-    135deg,
-    var(--primary),
-    var(--secondary)
-  );
-
-  color:white;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-
-  font-size:28px;
-  font-weight:bold;
-  line-height:1.4;
-  padding:20px;
-}
-
-.info-box{
-  background:#f8fafc;
-}
-
-.info-box table{
-  width:100%;
   height:100%;
-  border-collapse:collapse;
-}
+    }
 
-.info-box td{
-  border:1px solid var(--border);
-  padding:10px;
-  font-size:14px;
-}
+    .title{
+      background:#7a7a7a;
+      color:white;
+      text-align:center;
+      font-size:28px;
+      font-weight:bold;
+      padding:20px;
+    }
 
-.info-box td:first-child{
-  background:#eef2f7;
-  font-weight:bold;
-}
+    .info-box{
+      border-left:1px solid #999;
+    }
 
-/* TITULOS */
+    .info-box table{
+      width:100%;
+      border-collapse:collapse;
+    }
 
-.section-title{
-  background:linear-gradient(
-    90deg,
-    var(--primary),
-    var(--secondary)
-  );
+    .info-box td{
+      border:1px solid #999;
+      padding:8px;
+      font-size:14px;
+    }
 
-  color:white;
-  padding:12px 18px;
-  font-weight:bold;
-  letter-spacing:.5px;
-  font-size:15px;
-}
+    .section-title{
+      background:#dfe6ed;
+      padding:8px;
+      font-weight:bold;
+      border-top:1px solid #999;
+      border-bottom:1px solid #999;
+    }
 
-/* TABLAS */
+    table{
+      width:100%;
+      border-collapse:collapse;
+    }
 
-table{
-  width:100%;
-  border-collapse:collapse;
-}
+    td, th{
+      border:1px solid #999;
+      padding:8px;
+      font-size:14px;
+    }
 
-th{
-  background:#dbe5f0;
-  font-weight:bold;
-}
+    input, textarea{
+      width:100%;
+      padding:8px;
+      border:1px solid #ccc;
+    }
 
-td,th{
-  border:1px solid var(--border);
-  padding:10px;
-}
-
-/* LABELS */
-
-label{
-  display:block;
-  margin-bottom:6px;
-  font-size:13px;
-  font-weight:600;
-  color:#555;
-}
-
-/* INPUTS */
-
-input,
-textarea,
-select{
-  width:100%;
-  padding:10px 12px;
-  border:1px solid #cdd5df;
-  border-radius:6px;
-  font-size:14px;
-  transition:.2s;
-}
-
-input:focus,
-textarea:focus,
-select:focus{
-  outline:none;
-  border-color:var(--primary);
-  box-shadow:0 0 0 3px rgba(11,61,92,.15);
-}
-
-textarea{
-  resize:vertical;
-  line-height:1.5;
-}
-
-/* FOTO */
+    textarea{
+      min-height:120px;
+      resize:vertical;
+    }
 
 .photo-box{
-  width:100%;
-  min-height:230px;
-  border:2px dashed #cfd8e3;
-  background:#f8fafc;
-  border-radius:10px;
-  padding:15px;
-
+  width:180px;
+  min-height:180px;
+  border:1px solid #999;
   display:flex;
-  flex-direction:column;
+  justify-content:flex-start;
   align-items:center;
-  gap:15px;
+  flex-direction:column;
+  background:#f2f2f2;
+  padding:10px;
+  gap:10px;
 }
 
-.photo-box img{
-  max-width:100%;
-  max-height:170px;
-  border-radius:8px;
-  border:1px solid #ccc;
-  padding:5px;
-  background:white;
-}
+    .signature-table td{
+      height:80px;
+    }
 
-/* BOTONES */
+    .btn{
+      background:#007bff;
+      color:white;
+      border:none;
+      padding:12px 20px;
+      margin:20px;
+      border-radius:5px;
+      cursor:pointer;
+      font-size:16px;
+    }
 
-.btn{
-  background:linear-gradient(
-    135deg,
-    var(--primary),
-    var(--secondary)
-  );
+    .btn:hover{
+      background:#0056b3;
+    }
 
-  color:white;
-  border:none;
-  padding:14px 24px;
-  border-radius:8px;
-  font-size:15px;
-  font-weight:bold;
-  cursor:pointer;
-  margin:20px 10px 25px 20px;
-  transition:.2s;
-  box-shadow:0 5px 15px rgba(0,0,0,.15);
-}
-
-.btn:hover{
-  transform:translateY(-2px);
-}
-
-/* FOOTER */
-
-.footer{
-  text-align:center;
-  padding:15px;
-  font-size:12px;
-  background:#f1f5f9;
-  color:#666;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:1000px){
-
+  @media print{
   .header{
-    grid-template-columns:1fr;
+    border:2px solid #999 !important;
   }
-
-  .title{
-    font-size:22px;
+  @page{
+    size:A4;
+    margin:10mm;
   }
-
-}
-
-/* PRINT */
-
-@media print{
 
   body{
     background:white;
-    zoom:.78;
-    padding:0;
+    zoom:0.72;
   }
 
-  .btn,
-  input[type=file]{
+  .btn{
     display:none;
   }
 
   .container{
-    box-shadow:none;
-    border-radius:0;
+    border:none;
+    width:100%;
   }
 
   .page-break{
     page-break-before:always;
+  }
+
+  textarea{
+    min-height:80px;
+  }
+
+  .photo-box{
+    min-height:120px;
+  }
+
+  img{
+    max-height:180px !important;
   }
 
   table,
@@ -275,247 +182,260 @@ textarea{
     page-break-inside:avoid;
   }
 
-  @page{
-    size:A4;
-    margin:10mm;
-  }
-
 }
 
-</style>
+  </style>
 </head>
 
 <body>
 
 <div class="container">
 
-<!-- HEADER -->
+  <!-- REPUESTOS -->
 
-<div class="header">
+  <div class="header">
 
+    <div class="logo">
+      GILGAL
+    </div>
 
-<div class="logo">
-<h1>GILGAL</h1>
+    <div class="title">
+      INFORME DE MANTENIMIENTO<br>
+      A EQUIPO Y/O INSTALACIONES
+    </div>
+
+    <div class="info-box">
+
+      <table>
+
+        <tr>
+          <td><b>Código:</b></td>
+          <td>MA-FR-11</td>
+        </tr>
+
+        <tr>
+          <td><b>Revisión:</b></td>
+          <td>5</td>
+        </tr>
+
+        <tr>
+          <td><b>Fecha:</b></td>
+         <td>
+  <input 
+    type="text" 
+    id="fecha"
+    value="01-07-2026"
+    readonly
+  >
+</td>
+        </tr>
+
+        <tr>
+          <td><b>Página:</b></td>
+          <td>1 de 2</td>
+        </tr>
+
+      </table>
+
+    </div>
+
+  </div>
+
+  <!-- DATOS GENERALES -->
+
+  <div class="section-title">
+    1. DATOS GENERALES
+  </div>
+
+  <table>
+
+    <tr>
+
+      <td rowspan="4" width="150">
+
+        <div class="photo-box">
+          
+  <input
+    type="file"
+    id="foto"
+    accept="image/*"
+    onchange="convertirImagen()"
+  >
+
+  <img
+    id="previewPrincipal"
+    style="
+      max-width:100%;
+      max-height:150px;
+      border:1px solid #999;
+      padding:5px;
+    "
+  >
+
+  <input
+    type="hidden"
+    name="foto"
+    id="fotoBase64"
+  >
+
 </div>
 
-<div class="title">
-INFORME DE MANTENIMIENTO<br>
-A EQUIPO Y/O INSTALACIONES
-</div>
+      </td>
 
-<div class="info-box">
+      <td colspan="3">
+
+        <label>Nombre del equipo y/o instalaciones</label>
+
+        <input type="text" id="equipo">
+
+      </td>
+
+      <td>
+
+        <label>No de orden interna</label>
+
+        <input type="text" id="orden">
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td>
+
+        <label>Modelo</label>
+
+        <input type="text" id="modelo">
+
+      </td>
+
+      <td>
+
+        <label>No. de serie</label>
+
+        <input type="text" id="serie">
+
+      </td>
+
+      <td colspan="2 ">
+
+        <label>Inventario de activos</label>
+
+        <input type="text" id="inventario">
+
+      </td>
+
+    </tr>
+
+  </table>
+  
+  <div class="section-title">
+  2. OTROS DATOS
+</div>
 
 <table>
 
-<tr>
-<td><b>Código</b></td>
-<td>MA-FR-11</td>
-</tr>
+  <tr>
+    <td><input type="text" name= "dato1" placeholder="Dato 1"></td>
+    <td><input type="text" name="dato2" placeholder="Dato 2"></td>
+    <td><input type="text" name="dato3" placeholder="Dato 3"></td>
+    <td><input type="text" name="dato4" placeholder="Dato 4"></td>
+    <td><input type="text" name="dato5" placeholder="Dato 5"></td>
+  </tr>
 
-<tr>
-<td><b>Revisión</b></td>
-<td>5</td>
-</tr>
-
-<tr>
-<td><b>Fecha</b></td>
-<td>
-<input type="text" value="01-07-2026" readonly>
-</td>
-</tr>
-
-<tr>
-<td><b>Página</b></td>
-<td>1 de 2</td>
-</tr>
+  <tr>
+    <td><input type="text" name="dato6" placeholder="Dato 6"></td>
+    <td><input type="text" name="dato7" placeholder="Dato 7"></td>
+    <td><input type="text" name="dato8" placeholder="Dato 8"></td>
+    <td><input type="text" name="dato9" placeholder="Dato 9"></td>
+    <td><input type="text" name="dato10" placeholder="Dato 10"></td>
+  </tr>
 
 </table>
+  
 
-</div>
+  <!-- HALLAZGO -->
 
-</div>
+  <div class="section-title">
+    3. DESCRIPCIÓN DEL HALLAZGO
+  </div>
 
-<!-- DATOS -->
+  <textarea
 
-<div class="section-title">
-1. DATOS GENERALES
-</div>
+    id="hallazgo"
+    placeholder="Escriba la descripción del hallazgo..."
+     style="min-height:440px;"
+  ></textarea>
 
-<table>
+  
+  <table>
 
-<tr>
-
-<td rowspan="4" width="240">
-
-<div class="photo-box">
-
-<input
-type="file"
-id="foto"
-accept="image/*"
-onchange="previewImagen(event,'previewPrincipal')"
->
-
-<img id="previewPrincipal">
-
-</div>
-
-</td>
-
-<td colspan="3">
-
-<label>Nombre del equipo y/o instalaciones</label>
-
-<input type="text">
-
-</td>
-
-<td>
-
-<label>No de orden interna</label>
-
-<input type="text">
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-<label>Modelo</label>
-
-<input type="text">
-
-</td>
-
-<td>
-
-<label>No. de serie</label>
-
-<input type="text">
-
-</td>
-
-<td colspan="2">
-
-<label>Inventario de activos</label>
-
-<input type="text">
-
-</td>
-
-</tr>
-
-</table>
-
-<!-- OTROS DATOS -->
-
-<div class="section-title">
-2. OTROS DATOS
-</div>
-
-<table>
-
-<tr>
-<td><input type="text" placeholder="Dato 1"></td>
-<td><input type="text" placeholder="Dato 2"></td>
-<td><input type="text" placeholder="Dato 3"></td>
-<td><input type="text" placeholder="Dato 4"></td>
-<td><input type="text" placeholder="Dato 5"></td>
-</tr>
-
-<tr>
-<td><input type="text" placeholder="Dato 6"></td>
-<td><input type="text" placeholder="Dato 7"></td>
-<td><input type="text" placeholder="Dato 8"></td>
-<td><input type="text" placeholder="Dato 9"></td>
-<td><input type="text" placeholder="Dato 10"></td>
-</tr>
-
-</table>
-
-<!-- HALLAZGO -->
-
-<div class="section-title">
-3. DESCRIPCIÓN DEL HALLAZGO
-</div>
-
-<textarea
-placeholder="Escriba la descripción del hallazgo..."
-style="min-height:350px;"
-></textarea>
-
+  <tr>
+    <th>Fecha</th>
+    <th>Descripción del mantenimiento</th>
+    <th>Realizada por</th>
+    <th>Firma</th>
+    <th>Verificada por</th>
+    <th>Firma</th>
+  </tr>
 <!-- MANTENIMIENTO -->
+  <tr>
+    <td> <input type="date" id="fmantenimiento1" name="fmantenimiento1"></td>
+    <td><input type="text" name="dato11" placeholder="Descripcion Mantenimiento"></td>
+	<td><input type="text" name="dato12" placeholder="Realizada por"></td>
+	 <td>
+        <select name="dato13" required placeholder="Firma">
+        <option value="">Seleccione un nombre</option>
+        <option value="Wilson Rene Mendoza">Wilson Rene Mendoza</option>
+        <option value="Jhon Rodriguez">Jhon Rodriguez</option>
+        <option value="Reinel Romero">Reinel Romero</option>
+        <option value="Alejandro Guerrero">Alejandro Guerrero</option>
+        <option value="Guillermo Umaña">Guillermo Umaña</option>
+       <option value="Alirio Jimenez">Alirio Jimenez</option>
+        <option value="Juan Camilo Calderon">Juan Camilo Calderon</option>
+      </select>
+      </td>
+	<td><input type="text" name="dato14" placeholder="Verificada por"></td>
+	   
+    <td>
+        <select name="dato15" required placeholder="Firma">
+        <option value="">Seleccione un nombre</option>
+        <option value="Wilson Rene Mendoza">Wilson Rene Mendoza</option>
+        <option value="Jhon Rodriguez">Jhon Rodriguez</option>
+        <option value="Reinel Romero">Reinel Romero</option>
+        <option value="Alejandro Guerrero">Alejandro Guerrero</option>
+        <option value="Guillermo Umaña">Guillermo Umaña</option>
+       <option value="Alirio Jimenez">Alirio Jimenez</option>
+        <option value="Juan Camilo Calderon">Juan Camilo Calderon</option>
+      </select>
+      </td>
+    
+    
+    
 
-<div class="section-title">
-4. MANTENIMIENTO REALIZADO
-</div>
 
-<table>
+  </tr>
 
-<tr>
-<th>Fecha</th>
-<th>Descripción</th>
-<th>Realizada por</th>
-<th>Firma</th>
-<th>Verificada por</th>
-<th>Firma</th>
-</tr>
 
-<tr>
 
-<td>
-<input type="date">
-</td>
-
-<td>
-<input type="text" placeholder="Descripción mantenimiento">
-</td>
-
-<td>
-<input type="text">
-</td>
-
-<td>
-<select>
-<option>Seleccione</option>
-<option>Wilson Rene Mendoza</option>
-<option>Jhon Rodriguez</option>
-<option>Reinel Romero</option>
-</select>
-</td>
-
-<td>
-<input type="text">
-</td>
-
-<td>
-<select>
-<option>Seleccione</option>
-<option>Wilson Rene Mendoza</option>
-<option>Jhon Rodriguez</option>
-<option>Reinel Romero</option>
-</select>
-</td>
-
-</tr>
-
+	  
+	  
+	  
 </table>
+	
+	<div class="page-break"></div>
 
-<div class="page-break"></div>
-
-<!-- HEADER 2 -->
+<!-- HEADER PAGINA 2 -->
 
 <div class="header">
 
 <div class="logo">
-<h1>GILGAL</h1>
+GILGAL
 </div>
 
 <div class="title">
-INFORME DE MANTENIMIENTO<br>
+INFORME DE MANTENIMIENTO CORRECTIVO<br>
 A EQUIPO Y/O INSTALACIONES
 </div>
 
@@ -524,22 +444,22 @@ A EQUIPO Y/O INSTALACIONES
 <table>
 
 <tr>
-<td><b>Código</b></td>
+<td><b>Código:</b></td>
 <td>MA-FR-11</td>
 </tr>
 
 <tr>
-<td><b>Revisión</b></td>
+<td><b>Revisión:</b></td>
 <td>5</td>
 </tr>
 
 <tr>
-<td><b>Fecha</b></td>
-<td>01-07-2026</td>
+<td><b>Fecha:</b></td>
+<td><input type="date"></td>
 </tr>
 
 <tr>
-<td><b>Página</b></td>
+<td><b>Página:</b></td>
 <td>2 de 2</td>
 </tr>
 
@@ -552,18 +472,36 @@ A EQUIPO Y/O INSTALACIONES
 <!-- REPUESTOS -->
 
 <div class="section-title">
-5. REPUESTOS
+4. Repuestos
 </div>
 
 <table>
 
 <tr>
-<th>Fecha</th>
+<th width="100">Fecha</th>
 <th>Descripción</th>
-<th>Referencia</th>
-<th>Cantidad</th>
-<th>Proveedor</th>
-<th>Ciudad</th>
+<th width="140">Referencia</th>
+<th width="120">Cantidad</th>
+<th width="180">Proveedor</th>
+<th width="160">Ciudad</th>
+</tr>
+
+<tr>
+<td> <input type="date" id="fmantenimientoc1"></td>
+     <td><input type="text" name="dato16" placeholder="Descripcion"></td>
+	<td><input type="text" name="dato17" placeholder="Referencia"></td>
+	<td><input type="text" name="dato18" placeholder="Cantidad"></td>
+	<td><input type="text" name="dato19" placeholder="Proveedor"></td>
+	<td><input type="text" name="dato20" placeholder="Ciudad"></td>
+</tr>
+
+<tr>
+<td><input type="date"></td>
+<td><input type="text"></td>
+<td><input type="text"></td>
+<td><input type="number"></td>
+<td><input type="text"></td>
+<td><input type="text"></td>
 </tr>
 
 <tr>
@@ -586,48 +524,72 @@ A EQUIPO Y/O INSTALACIONES
 
 </table>
 
-<!-- FOTOS -->
+<!-- REGISTRO FOTOGRAFICO -->
+
+<!-- REGISTRO FOTOGRAFICO -->
 
 <div class="section-title">
-6. REGISTRO FOTOGRÁFICO
+5. Registro Fotográfico
 </div>
 
 <table>
 
 <tr>
 
+<!-- FOTO 1 -->
+<table>
 
-<td width="50%" style="padding:15px;">
+<tr>
+
+<!-- FOTO 1 -->
+<td width="50%" style="vertical-align:top; padding:10px;">
 
 <input
 type="file"
+id="fotoRegistro1"
 accept="image/*"
-onchange="previewImagen(event,'img1')"
+onchange="convertirFotoRegistro1()"
 >
 
 <br><br>
 
 <img
-id="img1"
-style="width:100%; max-height:260px; border-radius:8px;"
+id="preview1"
+style="
+max-width:100%;
+max-height:250px;
+border:1px solid #999;
+padding:5px;
+"
 >
+
+<input type="hidden" id="f_foto1_base64">
 
 </td>
 
-<td width="50%" style="padding:15px;">
+<!-- FOTO 2 -->
+<td width="50%" style="vertical-align:top; padding:10px;">
 
 <input
 type="file"
+id="fotoRegistro2"
 accept="image/*"
-onchange="previewImagen(event,'img2')"
+onchange="convertirFotoRegistro2()"
 >
 
 <br><br>
 
 <img
-id="img2"
-style="width:100%; max-height:260px; border-radius:8px;"
+id="preview2"
+style="
+max-width:100%;
+max-height:250px;
+border:1px solid #999;
+padding:5px;
+"
 >
+
+<input type="hidden" id="f_foto2_base64">
 
 </td>
 
@@ -635,161 +597,499 @@ style="width:100%; max-height:260px; border-radius:8px;"
 
 <tr>
 
-<td style="padding:15px;">
+<!-- FOTO 3 -->
+<td width="50%" style="vertical-align:top; padding:10px;">
 
 <input
 type="file"
+id="fotoRegistro3"
 accept="image/*"
-onchange="previewImagen(event,'img3')"
+onchange="convertirFotoRegistro3()"
 >
 
 <br><br>
 
 <img
-id="img3"
-style="width:100%; max-height:260px; border-radius:8px;"
+id="preview3"
+style="
+max-width:100%;
+max-height:250px;
+border:1px solid #999;
+padding:5px;
+"
 >
+
+<input type="hidden" id="f_foto3_base64">
 
 </td>
 
-<td style="padding:15px;">
+<!-- FOTO 4 -->
+<td width="50%" style="vertical-align:top; padding:10px;">
 
 <input
 type="file"
+id="fotoRegistro4"
 accept="image/*"
-onchange="previewImagen(event,'img4')"
+onchange="convertirFotoRegistro4()"
 >
 
 <br><br>
 
 <img
-id="img4"
-style="width:100%; max-height:260px; border-radius:8px;"
+id="preview4"
+style="
+max-width:100%;
+max-height:250px;
+border:1px solid #999;
+padding:5px;
+"
 >
+
+<input type="hidden" id="f_foto4_base64">
 
 </td>
 
 </tr>
 
 </table>
+
+
+
 
 <!-- RECOMENDACIONES -->
 
 <div class="section-title">
-7. RECOMENDACIONES
-</div>
 
-<textarea
-style="min-height:120px;"
-placeholder="Ingrese recomendaciones..."
-></textarea>
+  
+    6. RECOMENDACIONES
+  </div>
 
-<!-- OBSERVACIONES -->
+  <textarea
+    id="recomendaciones"
+    placeholder="Ingrese recomendaciones..."
+    style="min-height:100px;"
+  ></textarea>
 
-<div class="section-title">
-8. OBSERVACIONES
-</div>
+  <!-- OBSERVACIONES -->
 
-<textarea
-style="min-height:120px;"
-placeholder="Ingrese observaciones..."
-></textarea>
+  <div class="section-title">
+	  
+	  
+	  
+    7. OBSERVACIONES
+  </div>
 
-<!-- FIRMA -->
+  <textarea
+    id="observaciones"
+    placeholder="Ingrese observaciones..."
+     style="min-height:100px;"
+   
+  ></textarea>
 
-<div class="section-title">
-REALIZÓ INFORME
-</div>
+  <!-- REALIZÓ -->
 
-<table>
+  <div class="section-title">
+    Realizó Informe
+  </div>
 
-<tr>
-<th>Nombre</th>
-<th>Cargo</th>
-<th>Fecha</th>
-<th>Firma</th>
-</tr>
+  <table class="signature-table">
 
-<tr>
+    <tr>
+      <th>Nombre</th>
+      <th>Cargo</th>
+      <th>Fecha</th>
+      <th>Firma</th>
+    </tr>
 
-<td>
+    <tr>
 
-<select>
-<option>Seleccione</option>
-<option>Wilson Rene Mendoza</option>
-<option>Jhon Rodriguez</option>
-<option>Reinel Romero</option>
-</select>
+      <td>
+        <select id="nombre" name="nombre" required>
+        <option value="">Seleccione un nombre</option>
+        <option value="Wilson Rene Mendoza">Wilson Rene Mendoza</option>
+        <option value="Jhon Rodriguez">Jhon Rodriguez</option>
+        <option value="Reinel Romero">Reinel Romero</option>
+        <option value="Alejandro Guerrero">Alejandro Guerrero</option>
+        <option value="Guillermo Umaña">Guillermo Umaña</option>
+       <option value="Alirio Jimenez">Alirio Jimenez</option>
+        <option value="Juan Camilo Calderon">Juan Camilo Calderon</option>
+      </select>
+      </td>
 
-</td>
+     
+        <td>
+        <select id="cargo" name="firma" required>
+        <option value="">Seleccione un cargo</option>
+        <option value="Supervisor Mecanico">Supervisor Mecanico</option>
+        <option value="Técnico Especialista en Hot tap">Técnico Especialista en Hot tap</option>
+        <option value="Soldador">Soldador</option>
+        <option value="Obrero">Obrero</option>
+        <option value="Almacenista">Almacenista</option>
+         </select>
+        </td>
 
-<td>
+      <td>
+        <input type="date" id="fechaFirma">
+      </td>
 
-<select>
-<option>Seleccione</option>
-<option>Supervisor Mecánico</option>
-<option>Soldador</option>
-<option>Obrero</option>
-</select>
+      <td>
+           <select id="firma" name="firma" required>
+        <option value="">Seleccione un nombre</option>
+        <option value="Wilson Rene Mendoza">Wilson Rene Mendoza</option>
+        <option value="Jhon Rodriguez">Jhon Rodriguez</option>
+        <option value="Reinel Romero">Reinel Romero</option>
+        <option value="Alejandro Guerrero">Alejandro Guerrero</option>
+        <option value="Guillermo Umaña">Guillermo Umaña</option>
+       <option value="Alirio Jimenez">Alirio Jimenez</option>
+        <option value="Juan Camilo Calderon">Juan Camilo Calderon</option>
+      </select>
+      </td>
 
-</td>
+    </tr>
+    
 
-<td>
-<input type="date">
-</td>
+  </table>
 
-<td>
+  <!-- FORMULARIO OCULTO -->
 
-<select>
-<option>Seleccione</option>
-<option>Wilson Rene Mendoza</option>
-<option>Jhon Rodriguez</option>
-<option>Reinel Romero</option>
-</select>
+  <form
+    action= "https://script.google.com/macros/s/AKfycbzJlva-gC0AUBgWpACo4FR0Sagj8jWP1hhqWRu32x4HftkM0T7eRrRUgaT-JObPSh7fBw/exec"
+    method="POST"
+    target="_blank"
+  >
+ 
+    <input type="hidden" name="fecha" id="f_fecha">
+    <input type="hidden" name="equipo" id="f_equipo">
+    <input type="hidden" name="orden" id="f_orden">
+    <input type="hidden" name="modelo" id="f_modelo">
+    <input type="hidden" name="serie" id="f_serie">
+    <input type="hidden" name="inventario" id="f_inventario">
+    <input type="hidden" name="hallazgo" id="f_hallazgo">
+    <input type="hidden" name="recomendaciones" id="f_recomendaciones">
+    <input type="hidden" name="observaciones" id="f_observaciones">
+    <input type="hidden" name="nombre" id="f_nombre">
+    <input type="hidden" name="cargo" id="f_cargo">
+    <input type="hidden" name="fechaFirma" id="f_fechaFirma">
+    <input type="hidden" name="firma" id="f_firma">
+    <input type="hidden" name="foto" id="f_foto">
+    <input type="hidden" name="dato1" id="f_dato1">
+ 	 <input type="hidden" name="dato2" id="f_dato2">
+ 	 <input type="hidden" name="dato3" id="f_dato3">
+ 	 <input type="hidden" name="dato4" id="f_dato4">
+  	<input type="hidden" name="dato5" id="f_dato5">
+  	<input type="hidden" name="dato6" id="f_dato6">
+  	<input type="hidden" name="dato7" id="f_dato7">
+ 	 <input type="hidden" name="dato8" id="f_dato8">
+  	<input type="hidden" name="dato9" id="f_dato9">
+  	<input type="hidden" name="dato10" id="f_dato10">
+	<input type="hidden" name="dato11" id="f_dato11">
+	<input type="hidden" name="dato12" id="f_dato12">
+	 <input type="hidden" name="dato13" id="f_dato13">
+	 <input type="hidden" name="dato14" id="f_dato14">
+	 <input type="hidden" name="dato15" id="f_dato15">
+	 <input type="hidden" name="fechamantenimiento1" id="f_fecha1">
+	 <input type="hidden" name="fechamantenimientoc1" id="f_fecha2">
+	   <input type="hidden" name="dato16" id="f_dato16">
+	   <input type="hidden" name="dato17" id="f_dato17">
+	   <input type="hidden" name="dato18" id="f_dato18">
+	   <input type="hidden" name="dato19" id="f_dato19">
+	   <input type="hidden" name="dato20" id="f_dato20">
+	    <input type="hidden" name="foto1" id="f_foto1">
+	  <input type="hidden" name="foto2" id="f_foto2">
+	  	  <input type="hidden" name="foto3" id="f_foto3">
+	  	  <input type="hidden" name="foto4" id="f_foto4">
+	  
 
-</td>
-
-</tr>
-
-</table>
-
-<!-- BOTONES -->
-
-<button class="btn">
+    
+<button
+  type="button"
+  class="btn"
+  onclick="enviarFormulario()"
+>
 Guardar Informe
 </button>
+   
 
-<button
-class="btn"
-onclick="window.print()"
->
-Imprimir / Guardar PDF
-</button>
+  </form>
 
-<div class="footer">
-Sistema de Gestión de Mantenimiento © 2026
-</div>
+  <button class="btn" onclick="window.print()">
+    Imprimir / Guardar PDF
+  </button>
 
 </div>
+
+
+
 
 <script>
 
-function previewImagen(event,id){
+function enviarFormulario(){
+
+  prepararDatos();
+
+  document.querySelector("form").submit();
+
+}  
+  
+
+</script>
+<script>  
+function prepararDatos(){
+
+  document.getElementById("f_fecha").value =
+    document.getElementById("fecha").value;
+
+  document.getElementById("f_equipo").value =
+    document.getElementById("equipo").value;
+
+  document.getElementById("f_orden").value =
+    document.getElementById("orden").value;
+
+  document.getElementById("f_modelo").value =
+    document.getElementById("modelo").value;
+
+  document.getElementById("f_serie").value =
+    document.getElementById("serie").value;
+
+  document.getElementById("f_inventario").value =
+    document.getElementById("inventario").value;
+
+  document.getElementById("f_hallazgo").value =
+    document.getElementById("hallazgo").value;
+
+  document.getElementById("f_recomendaciones").value =
+    document.getElementById("recomendaciones").value;
+
+  document.getElementById("f_observaciones").value =
+    document.getElementById("observaciones").value;
+
+  document.getElementById("f_nombre").value =
+    document.getElementById("nombre").value;
+
+  document.getElementById("f_cargo").value =
+    document.getElementById("cargo").value;
+
+  document.getElementById("f_fechaFirma").value =
+    document.getElementById("fechaFirma").value;
+
+  document.getElementById("f_firma").value =
+    document.getElementById("firma").value;
+  
+  document.getElementById("f_foto").value =
+  document.getElementById("fotoBase64").value;
+document.getElementById("f_dato1").value =
+  document.getElementsByName("dato1")[0].value;
+
+document.getElementById("f_dato2").value =
+  document.getElementsByName("dato2")[0].value;
+  
+  document.getElementById("f_dato3").value =
+  document.getElementsByName("dato3")[0].value;
+
+document.getElementById("f_dato4").value =
+  document.getElementsByName("dato4")[0].value;
+
+  document.getElementById("f_dato5").value =
+  document.getElementsByName("dato5")[0].value;
+
+  document.getElementById("f_dato6").value =
+  document.getElementsByName("dato6")[0].value;
+
+  document.getElementById("f_dato7").value =
+  document.getElementsByName("dato7")[0].value;
+
+  document.getElementById("f_dato8").value =
+  document.getElementsByName("dato8")[0].value;
+
+  document.getElementById("f_dato9").value =
+  document.getElementsByName("dato9")[0].value;
+
+  document.getElementById("f_dato10").value =
+  document.getElementsByName("dato10")[0].value;
+
+   document.getElementById("f_fecha1").value =
+  document.getElementById("fmantenimiento1").value;
+
+	
+  document.getElementById("f_dato11").value =
+  document.getElementsByName("dato11")[0].value;
+	
+  document.getElementById("f_dato12").value =
+  document.getElementsByName("dato12")[0].value;
+
+  document.getElementById("f_dato13").value =
+  document.getElementsByName("dato13")[0].value;
+
+  document.getElementById("f_dato14").value =
+  document.getElementsByName("dato14")[0].value;
+
+
+  document.getElementById("f_dato15").value =
+  document.getElementsByName("dato15")[0].value;
+
+	
+  document.getElementById("f_fecha2").value =
+  document.getElementById("fmantenimientoc1").value;
+	
+	  document.getElementById("f_dato16").value =
+  document.getElementsByName("dato16")[0].value;
+	
+	  document.getElementById("f_dato17").value =
+  document.getElementsByName("dato17")[0].value;
+	
+	  document.getElementById("f_dato18").value =
+  document.getElementsByName("dato18")[0].value;
+	
+	  document.getElementById("f_dato19").value =
+  document.getElementsByName("dato19")[0].value;
+	
+	  document.getElementById("f_dato20").value =
+  document.getElementsByName("dato20")[0].value;
+	
+	document.getElementById("f_foto1").value =
+document.getElementById("f_foto1_base64").value;
+
+document.getElementById("f_foto2").value =
+document.getElementById("f_foto2_base64").value;
+	
+	document.getElementById("f_foto3").value =
+document.getElementById("f_foto3_base64").value;
+	
+	document.getElementById("f_foto4").value =
+document.getElementById("f_foto4_base64").value;
+	
+
+
+ 
+	
+}
+  
+
+function convertirImagen(){
+
+  const archivo =
+    document.getElementById("foto").files[0];
+
+  if(!archivo) return;
 
   const reader = new FileReader();
 
   reader.onload = function(){
 
-    document.getElementById(id).src =
+    // BASE64
+    document.getElementById("fotoBase64").value =
       reader.result;
 
-  }
+    // PREVIEW
+    document.getElementById("previewPrincipal").src =
+      reader.result;
 
-  reader.readAsDataURL(event.target.files[0]);
+  };
+
+  reader.readAsDataURL(archivo);
+
+}
+	
+	
+/* ===== FOTO REGISTRO 1 ===== */
+
+function convertirFotoRegistro1(){
+
+  const archivo =
+    document.getElementById("fotoRegistro1").files[0];
+
+  if(!archivo) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function(){
+
+    document.getElementById("preview1").src =
+      reader.result;
+
+    document.getElementById("f_foto1_base64").value =
+      reader.result;
+
+  };
+
+  reader.readAsDataURL(archivo);
 
 }
 
-</script>
+
+/* ===== FOTO REGISTRO 2 ===== */
+
+function convertirFotoRegistro2(){
+
+  const archivo =
+    document.getElementById("fotoRegistro2").files[0];
+
+  if(!archivo) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function(){
+
+    document.getElementById("preview2").src =
+      reader.result;
+
+    document.getElementById("f_foto2_base64").value =
+      reader.result;
+
+  };
+
+  reader.readAsDataURL(archivo);
+
+}	
+
+	function convertirFotoRegistro3(){
+
+  const archivo =
+    document.getElementById("fotoRegistro3").files[0];
+
+  if(!archivo) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function(){
+
+    document.getElementById("preview3").src =
+      reader.result;
+
+    document.getElementById("f_foto3_base64").value =
+      reader.result;
+
+  };
+
+  reader.readAsDataURL(archivo);
+
+}	
+	
+	function convertirFotoRegistro4(){
+
+  const archivo =
+    document.getElementById("fotoRegistro4").files[0];
+
+  if(!archivo) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function(){
+
+    document.getElementById("preview4").src =
+      reader.result;
+
+    document.getElementById("f_foto4_base64").value =
+      reader.result;
+
+  };
+
+  reader.readAsDataURL(archivo);
+
+}	
+
+
+</script> 
 
 </body>
 </html>
