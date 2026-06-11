@@ -37,10 +37,10 @@
 }
 
     .logo{
-      padding:20px;
+      padding:8px;
       text-align:center;
       border-right:1px solid #999;
-      font-size:30px;
+      font-size:22px;
       font-weight:bold;
       color:#0094d9;
        display:flex;
@@ -54,9 +54,10 @@
       background:#7a7a7a;
       color:white;
       text-align:center;
-      font-size:28px;
+      font-size:18px;
       font-weight:bold;
-      padding:20px;
+      padding:10px;
+		line-height: 1.2;
     }
 
     .info-box{
@@ -147,7 +148,7 @@
 
   body{
     background:white;
-    zoom:0.72;
+    zoom:0.85;
   }
 
   .btn{
@@ -181,6 +182,53 @@
   th{
     page-break-inside:avoid;
   }
+	  
+	    /* =========================
+   SECCIÓN 4 - DESCRIPCIÓN DEL MANTENIMIENTO
+   ========================= */
+
+.tabla-descripcion{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+.tabla-descripcion th{
+    border:1px solid #000;
+    background:#d9e1ea;
+  text-align:left !important;
+    padding:8px;
+    font-weight:bold;
+    font-size:16px;
+    color:#000;
+}
+
+.tabla-descripcion td{
+    border:1px solid #000;
+    padding:0;
+}
+
+#dato11{
+      width:100%;
+    min-height:250px;
+    border:1px solid #999;
+    padding:10px;
+    resize:vertical;
+    box-sizing:border-box;
+}
+
+/* Opcional: efecto al seleccionar */
+#dato11:focus{
+    background:#fafafa;
+}
+
+/* Ajuste para impresión */
+@media print{
+    #dato11{
+        border:none;
+        height:250px;
+    }
+}
 
 }
 
@@ -244,91 +292,105 @@
   <!-- DATOS GENERALES -->
 
   <div class="section-title">
-    1. DATOS GENERALES
-  </div>
-
-  <table>
-
-    <tr>
-
-      <td rowspan="4" width="150">
-
-        <div class="photo-box">
-          
-  <input
-    type="file"
-    id="foto"
-    accept="image/*"
-    onchange="convertirImagen()"
-  >
-
-  <img
-    id="previewPrincipal"
-    style="
-      max-width:100%;
-      max-height:150px;
-      border:1px solid #999;
-      padding:5px;
-    "
-  >
-
-  <input
-    type="hidden"
-    name="foto"
-    id="fotoBase64"
-  >
-
+  1. DATOS GENERALES
 </div>
 
-      </td>
+<table>
 
-      <td colspan="3">
+  <tr>
 
-        <label>Nombre del equipo y/o instalaciones</label>
+    <td rowspan="4" width="220">
 
-        <input type="text" id="equipo">
+      <div class="photo-box">
 
-      </td>
+        <input
+          type="file"
+          id="foto"
+          accept="image/*"
+          onchange="convertirImagen()"
+        >
 
-      <td>
+        <img
+          id="previewPrincipal"
+          style="
+            max-width:100%;
+            max-height:150px;
+            border:1px solid #999;
+            padding:5px;
+          "
+        >
 
-        <label>No de orden interna</label>
+        <input
+          type="hidden"
+          name="foto"
+          id="fotoBase64"
+        >
 
-        <input type="text" id="orden">
+      </div>
 
-      </td>
+    </td>
 
-    </tr>
+    <td width="160">
+      <label>Fecha</label>
+    </td>
 
-    <tr>
+    <td colspan="2">
+      <label>Nombre del equipo y/o instalaciones</label>
+    </td>
 
-      <td>
+    <td width="220">
+      <label>No de orden interna</label>
+    </td>
 
-        <label>Modelo</label>
+  </tr>
 
-        <input type="text" id="modelo">
+  <tr>
 
-      </td>
+     <td> <input type="date" id="fmantenimiento1" name="fmantenimiento1"></td>
 
-      <td>
+        <td colspan="2">
+      <input type="text" id="equipo" required>
+    </td>
 
-        <label>No. de serie</label>
+    <td>
+      <input type="text" id="orden" required>
+    </td>
 
-        <input type="text" id="serie">
+  </tr>
 
-      </td>
+  <tr>
 
-      <td colspan="2 ">
+    <td>
+      <label>Modelo</label>
+    </td>
 
-        <label>Inventario de activos</label>
+    <td>
+      <label>No. de serie</label>
+    </td>
 
-        <input type="text" id="inventario">
+    <td colspan="2">
+      <label>Codigo</label>
+    </td>
 
-      </td>
+  </tr>
 
-    </tr>
+  <tr>
 
-  </table>
+    <td>
+      <input type="text" id="modelo" required>
+    </td>
+
+    <td>
+      <input type="text" id="serie" required>
+    </td>
+
+    <td colspan="2">
+      <input type="text" id="inventario" required>
+    </td>
+
+  </tr>
+
+</table>
   
   <div class="section-title">
   2. OTROS DATOS
@@ -344,13 +406,7 @@
     <td><input type="text" name="dato5" placeholder="Dato 5"></td>
   </tr>
 
-  <tr>
-    <td><input type="text" name="dato6" placeholder="Dato 6"></td>
-    <td><input type="text" name="dato7" placeholder="Dato 7"></td>
-    <td><input type="text" name="dato8" placeholder="Dato 8"></td>
-    <td><input type="text" name="dato9" placeholder="Dato 9"></td>
-    <td><input type="text" name="dato10" placeholder="Dato 10"></td>
-  </tr>
+
 
 </table>
   
@@ -365,66 +421,36 @@
 
     id="hallazgo"
     placeholder="Escriba la descripción del hallazgo..."
-     style="min-height:440px;"
+     style="min-height:80px;"
+  ></textarea>
+
+
+		  
+		  
+ <!-- HALLAZGO -->
+
+  <div class="section-title">
+    4. DESCRIPCIÓN DEL MANTENIMIENTO
+  </div>
+
+  <textarea
+
+    id="dato11"
+	name="dato11"
+    placeholder="Descripcion del Mantenimiento..."
+     style="min-height:80px;"
   ></textarea>
 
   
-  <table>
+<table class="tabla-descripcion">
 
   <tr>
-    <th>Fecha</th>
-    <th>Descripción del mantenimiento</th>
-    <th>Realizada por</th>
-    <th>Firma</th>
-    <th>Verificada por</th>
-    <th>Firma</th>
-  </tr>
-<!-- MANTENIMIENTO -->
-  <tr>
-    <td> <input type="date" id="fmantenimiento1" name="fmantenimiento1"></td>
-    <td><input type="text" name="dato11" placeholder="Descripcion Mantenimiento"></td>
-	<td><input type="text" name="dato12" placeholder="Realizada por"></td>
-	 <td>
-        <select name="dato13" required placeholder="Firma">
-        <option value="">Seleccione un nombre</option>
-        <option value="Wilson Rene Mendoza">Wilson Rene Mendoza</option>
-        <option value="Jhon Rodriguez">Jhon Rodriguez</option>
-        <option value="Reinel Romero">Reinel Romero</option>
-        <option value="Alejandro Guerrero">Alejandro Guerrero</option>
-        <option value="Guillermo Umaña">Guillermo Umaña</option>
-       <option value="Alirio Jimenez">Alirio Jimenez</option>
-        <option value="Juan Camilo Calderon">Juan Camilo Calderon</option>
-      </select>
-      </td>
-	<td><input type="text" name="dato14" placeholder="Verificada por"></td>
-	   
-    <td>
-        <select name="dato15" required placeholder="Firma">
-        <option value="">Seleccione un nombre</option>
-        <option value="Wilson Rene Mendoza">Wilson Rene Mendoza</option>
-        <option value="Jhon Rodriguez">Jhon Rodriguez</option>
-        <option value="Reinel Romero">Reinel Romero</option>
-        <option value="Alejandro Guerrero">Alejandro Guerrero</option>
-        <option value="Guillermo Umaña">Guillermo Umaña</option>
-       <option value="Alirio Jimenez">Alirio Jimenez</option>
-        <option value="Juan Camilo Calderon">Juan Camilo Calderon</option>
-      </select>
-      </td>
-    
-    
-    
-
-
-  </tr>
-
-
-
-	  
-	  
-	  
+      <div class="section-title">		
+		  
+		  
 </table>
 	
-	<div class="page-break"></div>
+<div class="page-break"></div>
 
 <!-- HEADER PAGINA 2 -->
 
@@ -450,7 +476,7 @@ A EQUIPO Y/O INSTALACIONES
 
 <tr>
 <td><b>Revisión:</b></td>
-<td>5</td>
+<td>6</td>
 </tr>
 
 <tr>
@@ -477,7 +503,7 @@ A EQUIPO Y/O INSTALACIONES
 <!-- REPUESTOS -->
 
 <div class="section-title">
-4. Repuestos
+5. REPUESTOS
 </div>
 
 <table>
@@ -501,31 +527,21 @@ A EQUIPO Y/O INSTALACIONES
 </tr>
 
 <tr>
-<td><input type="date"></td>
-<td><input type="text"></td>
-<td><input type="text"></td>
-<td><input type="number"></td>
-<td><input type="text"></td>
-<td><input type="text"></td>
+<td> <input type="date" id="fmantenimientoc2"></td>
+     <td><input type="text" name="dato21" placeholder="Descripcion"></td>
+	<td><input type="text" name="dato22" placeholder="Referencia"></td>
+	<td><input type="text" name="dato23" placeholder="Cantidad"></td>
+	<td><input type="text" name="dato24" placeholder="Proveedor"></td>
+	<td><input type="text" name="dato25" placeholder="Ciudad"></td>
 </tr>
 
-<tr>
-<td><input type="date"></td>
-<td><input type="text"></td>
-<td><input type="text"></td>
-<td><input type="number"></td>
-<td><input type="text"></td>
-<td><input type="text"></td>
-</tr>
+<td> <input type="date" id="fmantenimientoc3"></td>
+     <td><input type="text" name="dato26" placeholder="Descripcion"></td>
+	<td><input type="text" name="dato27" placeholder="Referencia"></td>
+	<td><input type="text" name="dato28" placeholder="Cantidad"></td>
+	<td><input type="text" name="dato29" placeholder="Proveedor"></td>
+	<td><input type="text" name="dato30" placeholder="Ciudad"></td>
 
-<tr>
-<td><input type="date"></td>
-<td><input type="text"></td>
-<td><input type="text"></td>
-<td><input type="number"></td>
-<td><input type="text"></td>
-<td><input type="text"></td>
-</tr>
 
 </table>
 
@@ -534,7 +550,7 @@ A EQUIPO Y/O INSTALACIONES
 <!-- REGISTRO FOTOGRAFICO -->
 
 <div class="section-title">
-5. Registro Fotográfico
+6. REGISTRO FOTOGRÁFICO
 </div>
 
 <table>
@@ -666,13 +682,13 @@ padding:5px;
 <div class="section-title">
 
   
-    6. RECOMENDACIONES
+    7. RECOMENDACIONES
   </div>
 
   <textarea
     id="recomendaciones"
     placeholder="Ingrese recomendaciones..."
-    style="min-height:100px;"
+    style="min-height:60px;"
   ></textarea>
 
   <!-- OBSERVACIONES -->
@@ -681,13 +697,13 @@ padding:5px;
 	  
 	  
 	  
-    7. OBSERVACIONES
+    8. OBSERVACIONES
   </div>
 
   <textarea
     id="observaciones"
     placeholder="Ingrese observaciones..."
-     style="min-height:100px;"
+     style="min-height:80px;"
    
   ></textarea>
 
@@ -703,7 +719,7 @@ padding:5px;
       <th>Nombre</th>
       <th>Cargo</th>
       <th>Fecha</th>
-      <th>Firma</th>
+      <th>Visto Bueno</th>
     </tr>
 
     <tr>
@@ -752,13 +768,79 @@ padding:5px;
 
     </tr>
     
+	  
 
   </table>
+	
+	
+	<div class="section-title">
+    Verificó Informe
+  </div>
+
+  <table class="signature-table">
+
+    <tr>
+      <th>Nombre</th>
+      <th>Cargo</th>
+      <th>Fecha</th>
+      <th>Visto Bueno</th>
+    </tr>
+
+    <tr>
+
+      <td>
+        <select id="nombre1" name="nombre1" required>
+        <option value="">Seleccione un nombre</option>
+        <option value="Wilson Rene Mendoza">Wilson Rene Mendoza</option>
+        <option value="Jhon Rodriguez">Jhon Rodriguez</option>
+        <option value="Reinel Romero">Reinel Romero</option>
+        <option value="Alejandro Guerrero">Alejandro Guerrero</option>
+        <option value="Guillermo Umaña">Guillermo Umaña</option>
+       <option value="Alirio Jimenez">Alirio Jimenez</option>
+        <option value="Juan Camilo Calderon">Juan Camilo Calderon</option>
+      </select>
+      </td>
+
+     
+        <td>
+        <select id="cargo1" name="firma1" required>
+        <option value="">Seleccione un cargo</option>
+        <option value="Supervisor Mecanico">Supervisor Mecanico</option>
+        <option value="Técnico Especialista en Hot tap">Técnico Especialista en Hot tap</option>
+        <option value="Soldador">Soldador</option>
+        <option value="Obrero">Obrero</option>
+        <option value="Almacenista">Almacenista</option>
+         </select>
+        </td>
+
+      <td>
+        <input type="date" id="fechaFirma1">
+      </td>
+
+      <td>
+           <select id="firma1" name="firma1" required>
+        <option value="">Seleccione un nombre</option>
+        <option value="Wilson Rene Mendoza">Wilson Rene Mendoza</option>
+        <option value="Jhon Rodriguez">Jhon Rodriguez</option>
+        <option value="Reinel Romero">Reinel Romero</option>
+        <option value="Alejandro Guerrero">Alejandro Guerrero</option>
+        <option value="Guillermo Umaña">Guillermo Umaña</option>
+       <option value="Alirio Jimenez">Alirio Jimenez</option>
+        <option value="Juan Camilo Calderon">Juan Camilo Calderon</option>
+      </select>
+      </td>
+
+    </tr>
+    
+	  
+
+  </table>
+
 
   <!-- FORMULARIO OCULTO -->
 
   <form
-    action= "https://script.google.com/macros/s/AKfycbzJlva-gC0AUBgWpACo4FR0Sagj8jWP1hhqWRu32x4HftkM0T7eRrRUgaT-JObPSh7fBw/exec"
+    action= "https://script.google.com/macros/s/AKfycbwWvWEruCfAGxw_mELaCOWvgOF2NotTLmiPuiG_xM_Cf67Tjkx68XlJnNT_g1sCPPDR/exec"
     method="POST"
     target="_blank"
   >
@@ -776,29 +858,41 @@ padding:5px;
     <input type="hidden" name="cargo" id="f_cargo">
     <input type="hidden" name="fechaFirma" id="f_fechaFirma">
     <input type="hidden" name="firma" id="f_firma">
+	 <input type="hidden" name="nombre1" id="f_nombre1">
+    <input type="hidden" name="cargo1" id="f_cargo1">
+    <input type="hidden" name="fechaFirma1" id="f_fechaFirma1">
+    <input type="hidden" name="firma1" id="f_firma1"> 
+	  
+	  
     <input type="hidden" name="foto" id="f_foto">
     <input type="hidden" name="dato1" id="f_dato1">
  	 <input type="hidden" name="dato2" id="f_dato2">
  	 <input type="hidden" name="dato3" id="f_dato3">
  	 <input type="hidden" name="dato4" id="f_dato4">
   	<input type="hidden" name="dato5" id="f_dato5">
-  	<input type="hidden" name="dato6" id="f_dato6">
-  	<input type="hidden" name="dato7" id="f_dato7">
- 	 <input type="hidden" name="dato8" id="f_dato8">
-  	<input type="hidden" name="dato9" id="f_dato9">
-  	<input type="hidden" name="dato10" id="f_dato10">
-	<input type="hidden" name="dato11" id="f_dato11">
-	<input type="hidden" name="dato12" id="f_dato12">
-	 <input type="hidden" name="dato13" id="f_dato13">
-	 <input type="hidden" name="dato14" id="f_dato14">
-	 <input type="hidden" name="dato15" id="f_dato15">
+  	
+
+
 	 <input type="hidden" name="fechamantenimiento1" id="f_fecha1">
 	 <input type="hidden" name="fechamantenimientoc1" id="f_fecha2">
+	  	 <input type="hidden" name="fechamantenimientoc2" id="f_fecha3">
+	  	 <input type="hidden" name="fechamantenimientoc3" id="f_fecha4">
 	   <input type="hidden" name="dato16" id="f_dato16">
 	   <input type="hidden" name="dato17" id="f_dato17">
 	   <input type="hidden" name="dato18" id="f_dato18">
 	   <input type="hidden" name="dato19" id="f_dato19">
 	   <input type="hidden" name="dato20" id="f_dato20">
+	  <input type="hidden" name="dato21" id="f_dato21">
+	  <input type="hidden" name="dato22" id="f_dato22">
+	  <input type="hidden" name="dato23" id="f_dato23">
+	  <input type="hidden" name="dato24" id="f_dato24">
+	  <input type="hidden" name="dato25" id="f_dato25">
+	  <input type="hidden" name="dato26" id="f_dato26">
+	  <input type="hidden" name="dato27" id="f_dato27">
+	  <input type="hidden" name="dato28" id="f_dato28">
+	  <input type="hidden" name="dato29" id="f_dato29">
+	  <input type="hidden" name="dato30" id="f_dato30">
+	  
 	    <input type="hidden" name="foto1" id="f_foto1">
 	  <input type="hidden" name="foto2" id="f_foto2">
 	  	  <input type="hidden" name="foto3" id="f_foto3">
@@ -821,7 +915,7 @@ Guardar Informe
     Imprimir / Guardar PDF
   </button>
 
-</div>
+
 
 
 
@@ -829,6 +923,37 @@ Guardar Informe
 <script>
 
 function enviarFormulario(){
+	
+	  if(document.getElementById("equipo").value.trim() === ""){
+    alert("El campo Nombre del equipo y/o instalaciones es obligatorio.");
+    document.getElementById("equipo").focus();
+    return;
+  }
+	
+	
+  if(document.getElementById("orden").value.trim() === ""){
+    alert("El campo No de orden interna es obligatorio.");
+    document.getElementById("orden").focus();
+    return;
+  }
+
+  if(document.getElementById("modelo").value.trim() === ""){
+    alert("Colocar N/A si no aplica");
+    document.getElementById("modelo").focus();
+    return;
+  }
+
+  if(document.getElementById("serie").value.trim() === ""){
+    alert("Colocar N/A si no aplica");
+    document.getElementById("serie").focus();
+    return;
+  }
+
+  if(document.getElementById("inventario").value.trim() === ""){
+    alert("Colocar N/A si no aplica.");
+    document.getElementById("inventario").focus();
+    return;
+  }
 
   prepararDatos();
 
@@ -879,6 +1004,20 @@ function prepararDatos(){
 
   document.getElementById("f_firma").value =
     document.getElementById("firma").value;
+	
+	
+	document.getElementById("f_nombre1").value =
+    document.getElementById("nombre1").value;
+
+  document.getElementById("f_cargo1").value =
+    document.getElementById("cargo1").value;
+
+  document.getElementById("f_fechaFirma1").value =
+    document.getElementById("fechaFirma1").value;
+
+  document.getElementById("f_firma1").value =
+    document.getElementById("firma1").value;
+  
   
   document.getElementById("f_foto").value =
   document.getElementById("fotoBase64").value;
@@ -897,40 +1036,11 @@ document.getElementById("f_dato4").value =
   document.getElementById("f_dato5").value =
   document.getElementsByName("dato5")[0].value;
 
-  document.getElementById("f_dato6").value =
-  document.getElementsByName("dato6")[0].value;
-
-  document.getElementById("f_dato7").value =
-  document.getElementsByName("dato7")[0].value;
-
-  document.getElementById("f_dato8").value =
-  document.getElementsByName("dato8")[0].value;
-
-  document.getElementById("f_dato9").value =
-  document.getElementsByName("dato9")[0].value;
-
-  document.getElementById("f_dato10").value =
-  document.getElementsByName("dato10")[0].value;
 
    document.getElementById("f_fecha1").value =
   document.getElementById("fmantenimiento1").value;
 
 	
-  document.getElementById("f_dato11").value =
-  document.getElementsByName("dato11")[0].value;
-	
-  document.getElementById("f_dato12").value =
-  document.getElementsByName("dato12")[0].value;
-
-  document.getElementById("f_dato13").value =
-  document.getElementsByName("dato13")[0].value;
-
-  document.getElementById("f_dato14").value =
-  document.getElementsByName("dato14")[0].value;
-
-
-  document.getElementById("f_dato15").value =
-  document.getElementsByName("dato15")[0].value;
 
 	
   document.getElementById("f_fecha2").value =
@@ -950,6 +1060,42 @@ document.getElementById("f_dato4").value =
 	
 	  document.getElementById("f_dato20").value =
   document.getElementsByName("dato20")[0].value;
+	
+	  document.getElementById("f_fecha3").value =
+  document.getElementById("fmantenimientoc2").value;
+	
+	  document.getElementById("f_dato21").value =
+  document.getElementsByName("dato21")[0].value;
+	
+	  document.getElementById("f_dato22").value =
+  document.getElementsByName("dato22")[0].value;
+	
+	  document.getElementById("f_dato23").value =
+  document.getElementsByName("dato23")[0].value;
+	
+	  document.getElementById("f_dato24").value =
+  document.getElementsByName("dato24")[0].value;
+	
+	  document.getElementById("f_dato25").value =
+  document.getElementsByName("dato25")[0].value;
+	
+		  document.getElementById("f_fecha4").value =
+  document.getElementById("fmantenimientoc3").value;
+	
+	  document.getElementById("f_dato26").value =
+  document.getElementsByName("dato26")[0].value;
+	
+	  document.getElementById("f_dato27").value =
+  document.getElementsByName("dato27")[0].value;
+	
+	  document.getElementById("f_dato28").value =
+  document.getElementsByName("dato28")[0].value;
+	
+	  document.getElementById("f_dato29").value =
+  document.getElementsByName("dato29")[0].value;
+	
+	  document.getElementById("f_dato30").value =
+  document.getElementsByName("dato30")[0].value;
 	
 	document.getElementById("f_foto1").value =
 document.getElementById("f_foto1_base64").value;
